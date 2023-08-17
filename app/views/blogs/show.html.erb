@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<h2>
+<%= render @blog %>
+<%= @blog.blog_name%>
+<%= @blog.blog_score%>
+<%= @blog.content%>
+<%= @blog.user_id%>
+</h2>
+<div>
+  <%= link_to "Edit this blog", edit_blog_path(@blog) %> |
+  <%= link_to "Back to blogs", blogs_path %>
+  <%= button_to "Destroy this blog", @blog, method: :delete %>
+</div>

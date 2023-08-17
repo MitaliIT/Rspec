@@ -1,0 +1,19 @@
+<h1>New blog</h1>
+
+<%= render "form", blog: @blog %>
+
+<br>
+
+<div>
+  <%= link_to "Back to blogs", blogs_path %>
+</div>
+<% if @blog.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+    <ul>
+    <% @blog.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
