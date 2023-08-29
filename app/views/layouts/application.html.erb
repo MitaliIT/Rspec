@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= javascript_include_tag  'https://js.stripe.com/v2/' %> 
+    <script src="https://js.stripe.com/v3/"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-      <% if user_signed_in? %>
-            <%= link_to "Sign Out",destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to signout?'}, class:"nav-link active" %>
-        <% else %>
-            <%= link_to "Sign In",new_user_session_path, class:"nav-link active" %>
-        <% end %>
+<!--       <#% if user_signed_in? %>
+            <#%= link_to "Sign Out",destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to signout?'}, class:"nav-link active" %>
+        <#% else %>
+            <#%= link_to "Sign In",new_user_session_path, class:"nav-link active" %>
+        <#% end %> -->
     <%= yield %>
 
   </body>
