@@ -1,0 +1,19 @@
+<!-- app/views/products/show.html.erb -->
+<h1>Product Details:</h1>
+<div class="product-details">
+  <h2><%= @products.name %></h2> 
+  <form action="<%= add_to_cart_product_path(@products) %>" method="post">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+      data-amount="<%= (@products.price * 100).to_i %>"
+      data-name="Your Company Name"
+      data-description="Add to Cart"
+      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+      data-locale="auto">
+    </script>
+  </form>
+  <p><strong>Price:</strong> $<%= @products.price %></p>
+  <p><strong>Quantity:</strong> <%= @products.quantity %></p>
+  <p><strong>Status:</strong> <%= @products.status %></p>
+</div>
